@@ -77,3 +77,13 @@ code {
   justify-content: center;
 }
 
+.start-game-cta{
+  margin-top: 40px;
+  width: 60%;
+  height: 40px;
+  border-radius: 7px;
+  margin-left: 20px;
+  border: 1px solid white;
+  background-color: white;
+}
+

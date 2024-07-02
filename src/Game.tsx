@@ -7,6 +7,7 @@ const NumberGuessingGame = () => {
   const [message, setMessage] = useState('');
   const [chances, setChances] = useState(5);
   const [change, setChange] = useState(false);
+  const [lost, setLost] = useState(false);
 
   useEffect(() => {
     generateNumber();
@@ -26,6 +27,8 @@ const NumberGuessingGame = () => {
       const remainingChances = chances - 1;
       setChances(remainingChances);
       if (remainingChances === 0) {
+        setChances(0);
+        setLost(true);
         setMessage(`🤕 You lost !!`);
       } else {  
        
@@ -54,26 +57,37 @@ const NumberGuessingGame = () => {
     <div className="section white">
              <div className="inside-box">
              {change === false && <h2>Guess a number<br/> between 1-10</h2>}
-             {change === true && <h2>{chances} chances Left</h2>}
+             {change === true &&  chances!=0 && <h2 style={{marginBottom:50}}>{chances} chances Left</h2>}
              {change === false && (
-              <button className='small-box' onClick={() => setChange(true)}> Start the Game
+              <button className='small-box' onClick={() => setChange(true)}
+              style={{height: 40, borderRadius:7, width:"120px",border:"white",marginBottom:40}}> Start the Game
               </button>
              )}
         
-              {change === true && 
+              {change === true && chances!=0 &&
 
 
               (
                 <><input
                 value={guess}
+                style={{height: 40, borderRadius:4, width:"100%",border:"white"}}
                 onChange={(e) => setGuess(e.target.value)}
                 placeholder="Please enter your number"
               />   
                 <button className='start-game-cta' onClick={() => {handleGuess()}}> Guess
                 </button></>
               )}
+
               
              {message && <p>{message}</p>}
+
+             {lost=== true &&
+
+
+( 
+  <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);}}> Re-try
+  </button>
+)}
                     
              </div>
 
