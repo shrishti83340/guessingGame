@@ -5,9 +5,75 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.outer-div{
+  /* outerdiv  */
+  max-width: 800px;  
+  /* padding: 40px; */
+  margin: auto;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border: 1px solid black;
+  min-height: 600px;
+}
+
+.inside-box {
+  border: 1px solid black;
+  margin: auto; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: yellow;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.small-box{
+
+  width: 100px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: auto;
+}
+
+
+.section {
+  
+}
+
+.yellow {
+  background-color: yellow;
+  padding: 24px;
+
+  flex-grow: 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  /* justify content -> main axis */ 
+  /* align items ->  apposite axis */
+  
+
+}
+
+.white {
+  background-color: white;
+  flex-grow: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
