@@ -8,6 +8,7 @@ const NumberGuessingGame = () => {
   const [chances, setChances] = useState(5);
   const [change, setChange] = useState(false);
   const [lost, setLost] = useState(false);
+  const [won, setWon] = useState(false);
 
   useEffect(() => {
     generateNumber();
@@ -21,15 +22,18 @@ const NumberGuessingGame = () => {
   const handleGuess = () => {
     const guessedNumber = parseInt(guess);
     if (guessedNumber === number) {
-      setMessage('🎉 You Won !!');
+      setMessage(`🎉 
+      You Won !!`);
       setChances(0); // Game over after correct guess
+      setWon(true);
     } else {
       const remainingChances = chances - 1;
       setChances(remainingChances);
       if (remainingChances === 0) {
         setChances(0);
         setLost(true);
-        setMessage(`🤕 You lost !!`);
+        setMessage(`🤕 
+        You lost !!`);
       } else {  
        
       }
@@ -57,10 +61,10 @@ const NumberGuessingGame = () => {
     <div className="section white">
              <div className="inside-box">
              {change === false && <h2>Guess a number<br/> between 1-10</h2>}
-             {change === true &&  chances!=0 && <h2 style={{marginBottom:50}}>{chances} chances Left</h2>}
+             {change === true &&  chances!=0 && <h2 style={{marginBottom:50,fontWeight:400,fontSize:"17px",marginLeft:20}}>{chances} chances Left</h2>}
              {change === false && (
               <button className='small-box' onClick={() => setChange(true)}
-              style={{height: 40, borderRadius:7, width:"120px",border:"white",marginBottom:40}}> Start the Game
+              style={{height: 40, borderRadius:7, width:"120px",border:"white",marginBottom:40,fontWeight:600}}> Start the Game
               </button>
              )}
         
@@ -70,22 +74,28 @@ const NumberGuessingGame = () => {
               (
                 <><input
                 value={guess}
-                style={{height: 40, borderRadius:4, width:"100%",border:"white"}}
+                style={{height: 40, borderRadius:4, width:"100%",border:"white",paddingLeft:19}}
                 onChange={(e) => setGuess(e.target.value)}
-                placeholder="Please enter your number"
+                placeholder="Please enter your guess"
               />   
                 <button className='start-game-cta' onClick={() => {handleGuess()}}> Guess
                 </button></>
               )}
 
               
-             {message && <p>{message}</p>}
+             {message && <p className="message">{message}</p>}
 
              {lost=== true &&
-
-
 ( 
   <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);}}> Re-try
+  </button>
+)}
+
+
+{won=== true &&
+( 
+  <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);setChange(false);setWon(false)}}> 
+  Play again
   </button>
 )}
                     

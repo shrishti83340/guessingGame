@@ -15,27 +15,27 @@ code {
 
 .outer-div{
   /* outerdiv  */
-  max-width: 800px;  
+  /* max-width: 800px;   */
   /* padding: 40px; */
-  margin: auto;
-  margin-top: 20px;
+  /* margin: auto;
+  margin-top: 20px; */
 }
 
 .container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   min-height: 600px;
 }
 
 .inside-box {
-  border: 1px solid black;
   margin: auto; 
+  min-width: 190px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: yellow;
+  background-color: #FDE74C;
   border-radius: 10px;
   padding: 40px;
 }
@@ -43,6 +43,7 @@ code {
 .small-box{
 
   width: 100px;
+  min-width: 100px;
   background-color: white;
   border: 1px solid black;
   border-radius: 4px;
@@ -55,7 +56,7 @@ code {
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: #FDE74C;
   padding: 24px;
 
   flex-grow: 7;
@@ -82,8 +83,11 @@ code {
   width: 60%;
   height: 40px;
   border-radius: 7px;
-  margin-left: 20px;
+  margin-left: 39px;
   border: 1px solid white;
   background-color: white;
 }
-
+.message {
+  white-space: pre-line; /* Ensures newline characters are respected */
+  text-align: center;
+}
