@@ -26,7 +26,8 @@ code {
   flex-direction: row;
   width: 100%;
   /* border: 1px solid black; */
-  min-height: 600px;
+  min-height: 700px;
+  
 }
 
 .inside-box {
