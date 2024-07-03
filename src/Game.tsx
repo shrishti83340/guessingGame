@@ -87,17 +87,17 @@ const NumberGuessingGame = () => {
 
              {lost=== true &&
 ( 
-  <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);}}> Re-try
-  </button>
-)}
+              <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);}}> Re-try
+              </button>
+            )}
 
 
-{won=== true &&
-( 
-  <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);setChange(false);setWon(false)}}> 
-  Play again
-  </button>
-)}
+            {won=== true &&
+            ( 
+              <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);setChange(false);setWon(false)}}> 
+              Play again
+              </button>
+            )}
                     
              </div>
 
