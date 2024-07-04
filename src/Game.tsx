@@ -50,7 +50,7 @@ const NumberGuessingGame = () => {
     <div className="container flex flex-row">
       {/* sectionyellow */}
     <div className="section yellow">
-        <h2 style={{margin: 0, fontSize: 48}}>Guess<br/> the<br/> number</h2>
+        <h2 style={{margin: 0, fontSize: 48, fontWeight: 500}}>Guess<br/> the<br/> number</h2>
         {/*  */}
         <span className=""><span style={{fontWeight:700, paddingBottom:"10px"}}>Rules<br/></span>
             1.Start the Game <br/>
@@ -63,11 +63,11 @@ const NumberGuessingGame = () => {
     {/* section yellow end */}
     <div className="section white">
              <div className="inside-box">
-             {change === false && <h2 style={{fontStyle: 'normal',color:"#000000"}}>Guess a number<br/> between 1-10</h2>}
+             {change === false && <h2 style={{fontStyle: 'normal',color:"#000000",fontWeight: 400}}>Guess a number<br/> between 1-10</h2>}
              {change === true &&  chances!=0 && <h2 style={{marginBottom:50,fontWeight:400,fontSize:"17px",marginLeft:20}}>{chances} chances Left</h2>}
              {change === false && (
               <button className='small-box' onClick={() => setChange(true)}
-              style={{height: 40, borderRadius:7, width:"120px",border:"white",marginBottom:40,fontWeight:600}}> Start the Game
+              style={{height: 40, borderRadius:7, width:"120px",border:"white",marginBottom:40,fontWeight:400}}> Start the Game
               </button>
              )}
         
@@ -89,12 +89,12 @@ const NumberGuessingGame = () => {
              {/* {message && <p className="message">{message}</p>} */}
              <div>
         {emoji && <div style={{paddingLeft:70,fontWeight:800,fontSize:40}}>{emoji}</div>}
-        {message && <div style={{paddingLeft:60,paddingTop:40,fontSize:20}}>{message}</div>}
+        {message && <p style={{textAlign:"center",fontSize:20}}>{message}</p>}
       </div>
 
              {lost=== true &&
 ( 
-              <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);}}> Re-try
+              <button className='start-game-cta' onClick={() => {handleGuess();setMessage(""); setLost(false);setChances(5);setEmoji('')}}> Re-try
               </button>
             )}
 
