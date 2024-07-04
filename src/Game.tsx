@@ -9,6 +9,7 @@ const NumberGuessingGame = () => {
   const [change, setChange] = useState(false);
   const [lost, setLost] = useState(false);
   const [won, setWon] = useState(false);
+  const [emoji, setEmoji] = useState<string>('');
 
   useEffect(() => {
     generateNumber();
@@ -22,9 +23,10 @@ const NumberGuessingGame = () => {
   const handleGuess = () => {
     const guessedNumber = parseInt(guess);
     if (guessedNumber === number) {
-      setMessage(`🎉 
+      setEmoji(`🎉`)
+      setMessage(` 
       You Won !!`);
-      setChances(0); // Game over after correct guess
+      setChances(0);
       setWon(true);
     } else {
       const remainingChances = chances - 1;
@@ -32,7 +34,8 @@ const NumberGuessingGame = () => {
       if (remainingChances === 0) {
         setChances(0);
         setLost(true);
-        setMessage(`🤕 
+        setEmoji(`🤕`)
+        setMessage(`
         You lost !!`);
       } else {  
        
@@ -60,7 +63,7 @@ const NumberGuessingGame = () => {
     {/* section yellow end */}
     <div className="section white">
              <div className="inside-box">
-             {change === false && <h2>Guess a number<br/> between 1-10</h2>}
+             {change === false && <h2 style={{fontStyle: 'normal',color:"#000000"}}>Guess a number<br/> between 1-10</h2>}
              {change === true &&  chances!=0 && <h2 style={{marginBottom:50,fontWeight:400,fontSize:"17px",marginLeft:20}}>{chances} chances Left</h2>}
              {change === false && (
               <button className='small-box' onClick={() => setChange(true)}
@@ -83,7 +86,11 @@ const NumberGuessingGame = () => {
               )}
 
               
-             {message && <p className="message">{message}</p>}
+             {/* {message && <p className="message">{message}</p>} */}
+             <div>
+        {emoji && <div style={{paddingLeft:70,fontWeight:800,fontSize:40}}>{emoji}</div>}
+        {message && <div style={{paddingLeft:60,paddingTop:40,fontSize:20}}>{message}</div>}
+      </div>
 
              {lost=== true &&
 ( 
