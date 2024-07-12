@@ -26,7 +26,7 @@ code {
   flex-direction: row;
   width: 100%;
   /* border: 1px solid black; */
-  min-height: 700px;
+  min-height: 100vh;
   
 }
 
